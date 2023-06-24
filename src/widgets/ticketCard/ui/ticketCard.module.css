@@ -2,6 +2,10 @@
   display: flex;
   align-items: flex-start;
   gap: 24px;
+  background-color: var(--bg-primary-color);
+}
+.TicketCard:hover {
+  background-color: var(--bg-primary-color-hover);
 }
 .image_conteiner {
   display: flex;
