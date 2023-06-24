@@ -1,20 +1,20 @@
 .Button {
-  color: var(--inverted-primary-color);
-  background: var(--secondary-color);
+  color: var(--text-inverted-primary-color);
+  background: var(--bg-secondary-color);
 }
 .Button:hover {
-  background: var(--secondary-color-hover);
+  background: var(--bg-secondary-color-hover);
 }
 .disabled {
-  background: var(--inverted-secondary-color);
+  background: var(--bg-inverted-secondary-color);
 }
 .empty {
-  color: var(--secondary-color);
-  border: 1px solid var(--secondary-color);
+  color: var(--bg-secondary-color);
+  border: 1px solid var(--bg-secondary-color);
   background: none;
 }
 .empty:hover {
-  border: 1px solid var(--secondary-color-hover);
+  border: 1px solid var(--bg-secondary-color-hover);
   background: none;
 }
 .comfirm {

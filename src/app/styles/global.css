@@ -1,10 +1,16 @@
 :root {
   /* FONTS */
-
+  font-family: "SF Pro Text";
+  --font-size-m: 14px;
   /* COLORS */
-  --primary-color: black;
-  --inverted-primary-color: #ffffff;
-  --secondary-color: #f50;
-  --inverted-secondary-color: #ffa375;
-  --secondary-color-hover: #e94e00;
+  --text-primary-color: black;
+  --text-inverted-primary-color: #fff;
+  --text-tertiary: #999fa6;
+
+  --bg-primary-color: #fff;
+  --bg-secondary-color: #f50;
+  --bg-inverted-secondary-color: #ffa375;
+  --bg-secondary-color-hover: #e94e00;
+
+  --input-inactive-border-color: #e1e3e6;
 }

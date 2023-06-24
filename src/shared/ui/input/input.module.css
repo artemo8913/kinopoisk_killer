@@ -1,0 +1,23 @@
+.input_layout {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.label {
+  display: block;
+}
+
+.Input {
+  display: block;
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid var(--input-inactive-border-color);
+  background: var(--bg-primary-color);
+  font-size: var(----font-size-m);
+  line-height: 20px;
+  padding: 10px 16px;
+}
+.Input:focus {
+  border-color: var(--bg-secondary-color);
+}
