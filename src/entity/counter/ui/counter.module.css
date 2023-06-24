@@ -1,0 +1,15 @@
+.Counter {
+  display: flex;
+  gap: 8px;
+}
+
+.value {
+  color: var(--text-primary-color);
+}
+
+.counter_btn {
+  display: inline-flex;
+  fill: white;
+  padding: 4px;
+  border-radius: 4px;
+}

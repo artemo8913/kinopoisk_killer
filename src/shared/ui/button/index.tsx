@@ -37,12 +37,4 @@ function ComfirmButton(props: PropsWithChildren<ButtonProps>) {
   );
 }
 
-function CounterButton(props: PropsWithChildren<ButtonProps>) {
-  const { children, ...otherProps } = props;
-  return (
-    <Button {...otherProps} additionalClass={styles.counter}>
-      {children}
-    </Button>
-  );
-}
-export { Button, ComfirmButton, CounterButton, AppButtonTheme };
+export { Button, ComfirmButton, AppButtonTheme };
