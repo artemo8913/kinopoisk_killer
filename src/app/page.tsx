@@ -1,3 +1,4 @@
+import { QuestionCard } from "@/entity/question";
 import { DropDownButton } from "@/shared/ui/button";
 import { TicketCard } from "@/widgets/ticketCard";
 export default function Home() {
@@ -5,7 +6,7 @@ export default function Home() {
     <main>
       MAIN PAGE
       <TicketCard genre="genre" pictureUrl="../shared/assets/icons/basket.svg" title="title" value={0} />
-      <DropDownButton isOpen={false} />
+      <QuestionCard answer="asasdsad" question="a123asfd" />
     </main>
   );
 }

@@ -1,3 +1,4 @@
+"use client";
 import { createClassName } from "@/shared/lib/createClassName";
 import styles from "./button.module.css";
 import { PropsWithChildren } from "react";
@@ -12,13 +13,13 @@ interface ButtonProps {
   additionalClass?: string;
   isDisabled?: boolean;
   theme?: AppButtonTheme;
-  clickHandler?: () => void;
+  handleClick?: () => void;
 }
 
 function Button(props: PropsWithChildren<ButtonProps>) {
   const {
     additionalClass,
-    clickHandler,
+    handleClick,
     children,
     theme = AppButtonTheme.DEFAULT,
     isDisabled = false,
@@ -32,7 +33,7 @@ function Button(props: PropsWithChildren<ButtonProps>) {
 
   return (
     <button
-      onClick={clickHandler}
+      onClick={handleClick}
       {...otherProps}
       className={createClassName(styles.Button, styleMods, [additionalClass])}
     >

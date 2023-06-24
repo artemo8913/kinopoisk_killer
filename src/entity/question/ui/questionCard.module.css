@@ -1,4 +1,16 @@
 .QuestionCard {
   padding: 24px;
   display: flex;
+  align-items: flex-start;
+  gap: 32px;
+  background-color: var(--bg-primary-color);
+}
+.text_conteiner {
+  flex: 1 0 auto;
+}
+.question {
+  font-weight: bold;
+}
+
+.answer {
 }
