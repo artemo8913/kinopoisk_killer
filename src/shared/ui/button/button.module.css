@@ -1,0 +1,29 @@
+.Button {
+  color: var(--inverted-primary-color);
+  background: var(--secondary-color);
+}
+.Button:hover {
+  background: var(--secondary-color-hover);
+}
+.disabled {
+  background: var(--inverted-secondary-color);
+}
+.empty {
+  color: var(--secondary-color);
+  border: 1px solid var(--secondary-color);
+  background: none;
+}
+.empty:hover {
+  border: 1px solid var(--secondary-color-hover);
+  background: none;
+}
+.comfirm {
+  height: 40px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+.counter {
+  padding: 4px;
+  border-radius: 4px;
+}

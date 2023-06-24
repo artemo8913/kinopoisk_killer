@@ -1,0 +1,10 @@
+:root {
+  /* FONTS */
+
+  /* COLORS */
+  --primary-color: black;
+  --inverted-primary-color: #ffffff;
+  --secondary-color: #f50;
+  --inverted-secondary-color: #ffa375;
+  --secondary-color-hover: #e94e00;
+}
