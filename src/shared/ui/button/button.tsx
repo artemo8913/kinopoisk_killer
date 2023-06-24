@@ -12,10 +12,18 @@ interface ButtonProps {
   additionalClass?: string;
   isDisabled?: boolean;
   theme?: AppButtonTheme;
+  clickHandler?: () => void;
 }
 
 function Button(props: PropsWithChildren<ButtonProps>) {
-  const { additionalClass, children, theme = AppButtonTheme.DEFAULT, isDisabled = false, ...otherProps } = props;
+  const {
+    additionalClass,
+    clickHandler,
+    children,
+    theme = AppButtonTheme.DEFAULT,
+    isDisabled = false,
+    ...otherProps
+  } = props;
 
   const styleMods = {
     [styles.disabled]: isDisabled,
@@ -23,7 +31,11 @@ function Button(props: PropsWithChildren<ButtonProps>) {
   };
 
   return (
-    <button {...otherProps} className={createClassName(styles.Button, styleMods, [additionalClass])}>
+    <button
+      onClick={clickHandler}
+      {...otherProps}
+      className={createClassName(styles.Button, styleMods, [additionalClass])}
+    >
       {children}
     </button>
   );
