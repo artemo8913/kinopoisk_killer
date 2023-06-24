@@ -1,3 +1,4 @@
+"use client";
 import { createClassName } from "@/shared/lib/createClassName";
 import styles from "./input.module.css";
 import { InputHTMLAttributes, useState } from "react";
@@ -5,8 +6,8 @@ import { InputHTMLAttributes, useState } from "react";
 interface InputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, "value" | "onChange"> {
   additionalClass?: string;
   label?: string;
-  value?: string;
-  onChange?: (value: string) => void;
+  value: string;
+  onChange: (value: string) => void;
 }
 
 function Input(props: InputProps) {
@@ -25,7 +26,7 @@ function Input(props: InputProps) {
         type="text"
         placeholder="asd"
         value={value}
-        // onChange={onChangeHandler}
+        onChange={onChangeHandler}
         {...otherProps}
         className={styles.Input}
       />
