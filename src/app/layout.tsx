@@ -1,6 +1,7 @@
 import "./styles/resetStyles.css";
 import "./styles/global.css";
 import "./styles/app.css";
+import Link from "next/link";
 
 export const metadata = {
   title: "Next.js",
@@ -10,7 +11,13 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <header>HEADER</header>
+        <Link href="/film">Фильм</Link>
+        <Link href="/">Главная</Link>
+        {children}
+        <footer>FOOTER</footer>
+      </body>
     </html>
   );
 }
