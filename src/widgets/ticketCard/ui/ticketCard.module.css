@@ -1,0 +1,14 @@
+.TicketCard {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+}
+.image_conteiner {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex-shrink: 0;
+}
+.description_conteiner {
+  flex: 1 1 auto;
+}

@@ -1,12 +1,8 @@
-import { Input } from "@/shared/ui/input";
-import { Counter } from "@/entity/counter/ui/counter";
+import { TicketCard } from "@/widgets/ticketCard";
 export default function Home() {
   return (
     <main>
-      Hello
-      <Input />
-      <Input label="asd" />
-      <Counter value={0} />
+      <TicketCard genre="genre" pictureUrl="../shared/assets/icons/basket.svg" title="title" value={0} />
     </main>
   );
 }

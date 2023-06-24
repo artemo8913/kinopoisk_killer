@@ -1,4 +1,5 @@
 .Button {
+  flex-shrink: 0;
   color: var(--text-inverted-primary-color);
   background: var(--bg-secondary-color);
 }
