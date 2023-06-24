@@ -24,3 +24,13 @@
   border-radius: 8px;
   flex-shrink: 0;
 }
+.clear {
+  color: unset;
+  background: unset;
+}
+.clear:hover {
+  background: unset;
+}
+.drop_down_open {
+  transform: rotate(180deg);
+}

@@ -5,6 +5,7 @@ import { PropsWithChildren } from "react";
 enum AppButtonTheme {
   DEFAULT = "",
   EMPTY = "empty",
+  CLEAR = "clear",
 }
 
 interface ButtonProps {
