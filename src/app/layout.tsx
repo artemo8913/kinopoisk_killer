@@ -3,6 +3,7 @@ import "./styles/global.css";
 import "./styles/app.css";
 import Link from "next/link";
 import { Header } from "@/widgets/header";
+import { Footer } from "@/widgets/footer";
 
 export const metadata = {
   title: "Next.js",
@@ -14,10 +15,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body>
         <Header />
-        <Link href="/film">Фильм</Link>
-        <Link href="/">Главная</Link>
         {children}
-        <footer>FOOTER</footer>
+        <Footer />
       </body>
     </html>
   );

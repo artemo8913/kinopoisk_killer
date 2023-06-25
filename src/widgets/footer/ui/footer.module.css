@@ -1,0 +1,15 @@
+.Footer {
+  display: flex;
+  align-items: center;
+  height: var(--footer-height);
+  background-color: var(--bg-inverted-primary-color);
+  padding: 24px 32px;
+}
+.link {
+  color: var(--text-inverted-primary-color);
+  font-size: var(--font-size-l);
+}
+
+.answers {
+  flex: 1 0 auto;
+}
