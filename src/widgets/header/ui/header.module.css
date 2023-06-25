@@ -1,0 +1,18 @@
+.Header {
+  display: flex;
+  align-items: center;
+  height: var(--header-height);
+  background-color: var(--bg-inverted-primary-color);
+  padding: 24px 32px;
+}
+.title,
+.cart {
+  display: block;
+  flex-shrink: 0;
+}
+.title,
+.title:link {
+  color: var(--text-inverted-primary-color);
+  flex: 1 0 auto;
+  font-size: var(--font-size-xl);
+}

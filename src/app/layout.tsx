@@ -2,6 +2,7 @@ import "./styles/resetStyles.css";
 import "./styles/global.css";
 import "./styles/app.css";
 import Link from "next/link";
+import { Header } from "@/widgets/header";
 
 export const metadata = {
   title: "Next.js",
@@ -12,7 +13,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body>
-        <header>HEADER</header>
+        <Header />
         <Link href="/film">Фильм</Link>
         <Link href="/">Главная</Link>
         {children}
