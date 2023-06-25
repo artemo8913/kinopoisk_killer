@@ -2,6 +2,7 @@ import { createClassName } from "@/shared/lib/createClassName";
 import { Counter } from "@/entity/counter";
 import styles from "./ticketCard.module.css";
 import Image from "next/image";
+import { useState } from "react";
 
 interface TicketCardProps {
   additionalClass?: string;
@@ -12,7 +13,9 @@ interface TicketCardProps {
 }
 
 function TicketCard(props: TicketCardProps) {
-  const { additionalClass, pictureUrl, value, title, genre } = props;
+  const { additionalClass, pictureUrl, title, genre } = props;
+
+  const [value, setValue] = useState(0);
 
   return (
     <div className={createClassName(styles.TicketCard, {}, [additionalClass])}>
@@ -21,7 +24,7 @@ function TicketCard(props: TicketCardProps) {
         <div>{title}</div>
         <div>{genre}</div>
       </div>
-      <Counter value={0} />
+      <Counter value={value} handleValue={setValue} />
     </div>
   );
 }

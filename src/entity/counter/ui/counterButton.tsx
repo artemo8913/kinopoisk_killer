@@ -3,9 +3,9 @@ import { Button } from "@/shared/ui/button";
 import { PropsWithChildren } from "react";
 
 function CounterButton(props: PropsWithChildren<React.ComponentProps<typeof Button>>) {
-  const { children, ...otherProps } = props;
+  const { children, handleClick, ...otherProps } = props;
   return (
-    <Button {...otherProps} additionalClass={styles.counter_btn}>
+    <Button {...otherProps} handleClick={handleClick} additionalClass={styles.counter_btn}>
       {children}
     </Button>
   );
