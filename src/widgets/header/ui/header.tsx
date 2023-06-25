@@ -11,12 +11,16 @@ interface HeaderProps {
 function Header({ additionalClassName }: HeaderProps) {
   return (
     <header className={createClassName(styles.Header, {}, [additionalClassName])}>
-      <Link className={styles.title} href="/">
-        <h1>Билетопоиск</h1>
-      </Link>
-      <Link className={styles.cart} href="/cart">
-        <Image alt="корзина" src={IconCart} />
-      </Link>
+      <div className={styles.title}>
+        <Link className={styles.link} href="/">
+          Билетопоиск
+        </Link>
+      </div>
+      <div className={styles.cart}>
+        <Link className={styles.link} href="/cart">
+          <Image alt="корзина" src={IconCart} />
+        </Link>
+      </div>
     </header>
   );
 }

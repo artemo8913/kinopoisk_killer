@@ -5,14 +5,17 @@
   background-color: var(--bg-inverted-primary-color);
   padding: 24px 32px;
 }
+
 .title,
 .cart {
-  display: block;
   flex-shrink: 0;
 }
-.title,
-.title:link {
-  color: var(--text-inverted-primary-color);
+
+.title {
   flex: 1 0 auto;
+}
+
+.link {
+  color: var(--text-inverted-primary-color);
   font-size: var(--font-size-xl);
 }
