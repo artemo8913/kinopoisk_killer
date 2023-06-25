@@ -3,7 +3,7 @@ import { createClassName } from "@/shared/lib/createClassName";
 import { Counter } from "@/entity/counter";
 import styles from "./ticketCard.module.css";
 import Image from "next/image";
-import { Suspense, useState } from "react";
+import { Suspense, memo } from "react";
 import { Card } from "@/shared/ui/card";
 import IconImage from "@/shared/assets/icons/photo.svg";
 import { Button } from "@/shared/ui/button";
@@ -14,6 +14,7 @@ interface TicketCardProps {
   additionalClass?: string;
   isInCart?: boolean;
   onClose?: () => void;
+  id: string;
   posterUrl: string;
   value: number;
   title: string;
@@ -21,9 +22,7 @@ interface TicketCardProps {
 }
 
 function TicketCard(props: TicketCardProps) {
-  const { additionalClass, posterUrl, onClose, title, genre, isInCart = false } = props;
-
-  const [value, setValue] = useState(0);
+  const { additionalClass, id, posterUrl, onClose, title, genre, isInCart = false } = props;
 
   return (
     <Card additionalClassName={createClassName(styles.TicketCard, {}, [additionalClass])}>
@@ -41,7 +40,7 @@ function TicketCard(props: TicketCardProps) {
         <div className={styles.title}>{title}</div>
         <div className={styles.genre}>{genre}</div>
       </div>
-      <Counter value={value} handleValue={setValue} />
+      <Counter id={id} />
       {isInCart && (
         <Button handleClick={onClose} theme={AppButtonTheme.CLEAR}>
           <Image src={IconRemove} width={20} alt="удалить" />
@@ -50,5 +49,4 @@ function TicketCard(props: TicketCardProps) {
     </Card>
   );
 }
-
 export { TicketCard };

@@ -5,6 +5,7 @@ import { Roboto } from "next/font/google";
 
 import { Header } from "@/widgets/header";
 import { Footer } from "@/widgets/footer";
+import { StoreProvider } from "@/store";
 
 export const metadata = {
   title: "Next.js",
@@ -16,9 +17,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body className={`${styles.body} ${roboto.className}`}>
-        <Header />
-        <main className={styles.main}>{children}</main>
-        <Footer />
+        <StoreProvider>
+          <Header />
+          <main className={styles.main}>{children}</main>
+          <Footer />
+        </StoreProvider>
       </body>
     </html>
   );

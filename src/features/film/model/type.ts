@@ -1,4 +1,4 @@
-export interface FilmInfo {
+export interface FilmSchema {
   title: string;
   posterUrl: string;
   releaseYear: number;
