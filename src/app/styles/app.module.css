@@ -1,6 +1,8 @@
 .main {
   padding: 24px 32px;
   flex: 1 0 auto;
+  height: calc(100vh - var(--header-height) - var(--footer-height));
+  overflow: auto;
 }
 .body {
   display: flex;
