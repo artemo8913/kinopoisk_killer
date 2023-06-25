@@ -6,7 +6,9 @@
 .Button:hover {
   background: var(--bg-secondary-color-hover);
 }
-.disabled {
+.disabled,
+.disabled:hover {
+  cursor: default;
   background: var(--bg-inverted-secondary-color);
 }
 .empty {

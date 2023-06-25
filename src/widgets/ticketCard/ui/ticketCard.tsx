@@ -3,30 +3,51 @@ import { createClassName } from "@/shared/lib/createClassName";
 import { Counter } from "@/entity/counter";
 import styles from "./ticketCard.module.css";
 import Image from "next/image";
-import { useState } from "react";
+import { Suspense, useState } from "react";
+import { Card } from "@/shared/ui/card";
+import IconImage from "@/shared/assets/icons/photo.svg";
+import { Button } from "@/shared/ui/button";
+import IconRemove from "@/shared/assets/icons/close.svg";
+import { AppButtonTheme } from "@/shared/ui/button/button";
 
 interface TicketCardProps {
   additionalClass?: string;
-  pictureUrl: string;
+  isInCart?: boolean;
+  onClose?: () => void;
+  posterUrl: string;
   value: number;
   title: string;
   genre: string;
 }
 
 function TicketCard(props: TicketCardProps) {
-  const { additionalClass, pictureUrl, title, genre } = props;
+  const { additionalClass, posterUrl, onClose, title, genre, isInCart = false } = props;
 
   const [value, setValue] = useState(0);
 
   return (
-    <div className={createClassName(styles.TicketCard, {}, [additionalClass])}>
-      <Image className={styles.image_conteiner} width={100} height={120} alt={title} src={pictureUrl} />
+    <Card additionalClassName={createClassName(styles.TicketCard, {}, [additionalClass])}>
+      <Suspense fallback={<Image src={IconImage} alt={title} />}>
+        <Image
+          style={{ objectFit: "cover" }}
+          className={styles.image_conteiner}
+          width={100}
+          height={120}
+          alt={title}
+          src={posterUrl}
+        />
+      </Suspense>
       <div className={styles.description_conteiner}>
-        <div>{title}</div>
-        <div>{genre}</div>
+        <div className={styles.title}>{title}</div>
+        <div className={styles.genre}>{genre}</div>
       </div>
       <Counter value={value} handleValue={setValue} />
-    </div>
+      {isInCart && (
+        <Button handleClick={onClose} theme={AppButtonTheme.CLEAR}>
+          <Image src={IconRemove} width={20} alt="удалить" />
+        </Button>
+      )}
+    </Card>
   );
 }
 

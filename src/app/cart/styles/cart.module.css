@@ -1,0 +1,23 @@
+.Cart {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  height: calc(100vh - var(--header-height) - var(--footer-height) - 48px);
+}
+.ticket_card_list {
+  display: flex;
+  flex: 1 0 auto;
+  flex-direction: column;
+  gap: 16px;
+}
+.total_card {
+  display: flex;
+}
+.total_card :first-child {
+  flex: 1 1 auto;
+}
+.total_card span {
+  font-size: var(--font-size-l);
+  font-weight: bold;
+  line-height: 20px;
+}

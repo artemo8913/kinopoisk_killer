@@ -8,11 +8,23 @@
   background-color: var(--bg-primary-color-hover);
 }
 .image_conteiner {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+  /* background-size: cover; пришлось применить в аттрибуте тэга */
   flex-shrink: 0;
 }
 .description_conteiner {
   flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.title {
+  font-weight: bold;
+  font-size: var(--font-size-l);
+  line-height: 20px;
+}
+.genre {
+  font-style: italic;
+  line-height: 20px;
+  font-size: var(--font-size-m);
 }
