@@ -3,7 +3,7 @@ import { createClassName } from "@/shared/lib/createClassName";
 import { Counter } from "@/entity/counter";
 import styles from "./ticketCard.module.css";
 import Image from "next/image";
-import { Suspense, memo } from "react";
+import { Suspense } from "react";
 import { Card } from "@/shared/ui/card";
 import IconImage from "@/shared/assets/icons/photo.svg";
 import { Button } from "@/shared/ui/button";

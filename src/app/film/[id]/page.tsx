@@ -1,4 +1,7 @@
+"use client";
 import { Film } from "@/features/film";
+import { Review, useGetReviewsForFilmQuery } from "@/features/review";
+import styles from "./styles/filmPage.module.css";
 
 interface FilmPageParams {
   id: string;
@@ -9,13 +12,20 @@ interface FilmPageProps {
   params: FilmPageParams;
 }
 
-async function FilmPage({ additionalClassName, params }: FilmPageProps) {
+function FilmPage({ additionalClassName, params }: FilmPageProps) {
   const filmId = params.id;
-  // const reviews = mock.reviewIds.map((reviewId) => <Review key={reviewId} reviewId={reviewId} />);
+  const { data, isLoading, error } = useGetReviewsForFilmQuery(filmId);
+  if (isLoading) {
+    return <div>...</div>;
+  }
+  if (!data || error) {
+    return <span>Error</span>;
+  }
+  const reviews = data.map((review) => <Review key={review.id} {...review} />);
   return (
-    <article>
+    <article className={styles.FilmPage}>
       <Film id={filmId} />
-      {/* {reviews} */}
+      {reviews}
     </article>
   );
 }

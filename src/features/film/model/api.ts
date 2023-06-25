@@ -1,6 +1,6 @@
 import { BASE_URL } from "@/shared/const/url";
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { FilmSchema } from "./type";
+import { FilmSchema } from "./schema";
 
 const filmApi = createApi({
   reducerPath: "filmApi",

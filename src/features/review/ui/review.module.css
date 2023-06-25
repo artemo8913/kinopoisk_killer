@@ -1,0 +1,20 @@
+.Review {
+  display: flex;
+  gap: 32px;
+}
+.info_conteinter {
+  flex: 1 1 auto;
+  gap: 16px;
+}
+.name_conteinter {
+  display: flex;
+  font-size: 20px;
+  line-height: 32px;
+}
+.name {
+  flex: 1 1 auto;
+  font-weight: 600;
+}
+.bold {
+  font-weight: bold;
+}
