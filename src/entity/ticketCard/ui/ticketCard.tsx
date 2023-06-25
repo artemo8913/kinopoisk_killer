@@ -9,6 +9,7 @@ import IconImage from "@/shared/assets/icons/photo.svg";
 import { Button } from "@/shared/ui/button";
 import IconRemove from "@/shared/assets/icons/close.svg";
 import { AppButtonTheme } from "@/shared/ui/button/button";
+import { useRouter } from "next/navigation";
 
 interface TicketCardProps {
   additionalClass?: string;
@@ -22,11 +23,13 @@ interface TicketCardProps {
 
 function TicketCard(props: TicketCardProps) {
   const { additionalClass, id, posterUrl, onClose, title, genre, isInCart = false } = props;
+  const router = useRouter();
 
   return (
     <Card additionalClassName={createClassName(styles.TicketCard, {}, [additionalClass])}>
       <Suspense fallback={<Image src={IconImage} alt={title} />}>
         <Image
+          onClick={() => router.push(`/film/${id}`)}
           style={{ objectFit: "cover" }}
           className={styles.image_conteiner}
           width={100}
@@ -35,7 +38,7 @@ function TicketCard(props: TicketCardProps) {
           src={posterUrl}
         />
       </Suspense>
-      <div className={styles.description_conteiner}>
+      <div onClick={() => router.push(`/film/${id}`)} className={styles.description_conteiner}>
         <div className={styles.title}>{title}</div>
         <div className={styles.genre}>{genre}</div>
       </div>

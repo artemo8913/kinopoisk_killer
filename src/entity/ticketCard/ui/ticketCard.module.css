@@ -12,6 +12,8 @@
   flex-shrink: 0;
 }
 .description_conteiner {
+  align-self: stretch;
+  cursor: pointer;
   flex: 1 1 auto;
   display: flex;
   flex-direction: column;
