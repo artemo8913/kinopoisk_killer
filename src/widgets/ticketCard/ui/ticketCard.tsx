@@ -1,3 +1,4 @@
+"use client";
 import { createClassName } from "@/shared/lib/createClassName";
 import { Counter } from "@/entity/counter";
 import styles from "./ticketCard.module.css";
