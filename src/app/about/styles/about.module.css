@@ -1,0 +1,11 @@
+.title {
+  font-size: 32px;
+  line-height: 32px;
+  font-weight: bold;
+}
+.text {
+  margin-top: 32px;
+  color: var(--text-primary-color);
+  font-size: var(--font-size-m);
+  line-height: 24px;
+}

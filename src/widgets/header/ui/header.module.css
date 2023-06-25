@@ -9,6 +9,7 @@
 .title,
 .cart {
   flex-shrink: 0;
+  font-weight: bold;
 }
 
 .title {
@@ -17,5 +18,5 @@
 
 .link {
   color: var(--text-inverted-primary-color);
-  font-size: var(--font-size-xl);
+  font-size: var(--font-size-xxl);
 }

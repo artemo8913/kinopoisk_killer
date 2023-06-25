@@ -3,6 +3,7 @@ import { createClassName } from "@/shared/lib/createClassName";
 import styles from "./questionCard.module.css";
 import { DropDownButton } from "@/shared/ui/button";
 import { useState } from "react";
+import { Card } from "@/shared/ui/card";
 
 interface QuestionCardProps {
   additionalClass?: string;
@@ -20,13 +21,13 @@ function QuestionCard(props: QuestionCardProps) {
   }
 
   return (
-    <div className={createClassName(styles.QuestionCard, {}, [additionalClass])}>
+    <Card additionalClassName={createClassName(styles.QuestionCard, {}, [additionalClass])}>
       <div className={styles.text_conteiner}>
         <p className={styles.question}>{question}</p>
         {Boolean(isOpen) && <p className={styles.answer}>{answer}</p>}
       </div>
       <DropDownButton isOpen={isOpen} handleClick={handleClick} />
-    </div>
+    </Card>
   );
 }
 export { QuestionCard };

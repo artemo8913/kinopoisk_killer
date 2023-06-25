@@ -6,11 +6,18 @@
   background-color: var(--bg-primary-color);
 }
 .text_conteiner {
-  flex: 1 0 auto;
+  flex: 1 1 auto;
 }
+
 .question {
   font-weight: bold;
+  font-size: var(--font-size-xl);
+  font-weight: 600;
+  line-height: 32px;
 }
 
 .answer {
+  line-height: 24px;
+  font-size: var(--font-size-m);
+  margin-top: 16px;
 }

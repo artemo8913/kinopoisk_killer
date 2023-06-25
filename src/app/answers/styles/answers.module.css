@@ -1,0 +1,12 @@
+.Answers {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.title {
+  color: var(--text-primary-color);
+  font-size: var(--font-size-xxl);
+  font-weight: bold;
+  line-height: 32px;
+  margin-bottom: 8px;
+}
