@@ -1,8 +1,9 @@
-import { createClassName } from "@/shared/lib/createClassName";
 import { Film } from "@/entity/film";
-
+import { Review } from "@/entity/review";
+import { URL_API_MOVIE } from "@/shared/const/url";
+import { fetchData } from "@/shared/lib/fetchData";
 interface FilmPageParams {
-  id: number;
+  id: string;
 }
 
 interface FilmPageProps {
@@ -10,7 +11,9 @@ interface FilmPageProps {
   params: FilmPageParams;
 }
 
-function FilmPage({ additionalClassName, params: param }: FilmPageProps) {
+async function FilmPage({ additionalClassName, params }: FilmPageProps) {
+  const filmId = params.id;
+  const filmInfo = fetchData(URL_API_MOVIE(filmId));
   const mock = {
     title: "Властелин колец: Братство Кольца",
     posterUrl: "https://i.postimg.cc/pdCLNMqX/1.webp",
@@ -23,10 +26,12 @@ function FilmPage({ additionalClassName, params: param }: FilmPageProps) {
     director: "Питер Джексон",
     reviewIds: ["M0bg9QY5gVtupNaglrmua", "w32kK5oV6UIr1ZHdkkMAn"],
   };
+  const reviews = mock.reviewIds.map((reviewId) => <Review key={reviewId} reviewId={reviewId} />);
   return (
-    <div className={createClassName("", {}, [additionalClassName])}>
+    <article>
       <Film {...mock} />
-    </div>
+      {reviews}
+    </article>
   );
 }
 export default FilmPage;
