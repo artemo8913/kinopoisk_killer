@@ -4,11 +4,12 @@ import { Card } from "@/shared/ui/card";
 import { TicketCardList } from "@/widgets/ticketCardList";
 import { useGetAllFilmsQuery } from "@/features/film";
 import { useSelector } from "react-redux";
-import { selectCartModule } from "@/features/cart";
+import { selectAllProductAmount, selectCartModule } from "@/features/cart";
 
 export default function Cart() {
   const { data, isLoading, error } = useGetAllFilmsQuery(null);
   const cart = useSelector(selectCartModule);
+  const amount = useSelector(selectAllProductAmount);
   if (isLoading) {
     return <div>...</div>;
   }
@@ -21,7 +22,7 @@ export default function Cart() {
       <TicketCardList isInCart filmsList={filmsInCart} />
       <Card additionalClassName={styles.total_card}>
         <span>Итого билетов:</span>
-        <span>2</span>
+        <span>{amount}</span>
       </Card>
     </div>
   );

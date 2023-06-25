@@ -1,8 +1,5 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-
-export interface CartSchema {
-  [key: string]: number;
-}
+import { CartSchema } from "./schema";
 
 const initialState: CartSchema = {};
 

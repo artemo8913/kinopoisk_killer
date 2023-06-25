@@ -1,3 +1,3 @@
-export type { CartSchema } from "./model/slice";
+export type { CartSchema } from "./model/schema";
 export { cartSlice } from "./model/slice";
-export { selectCartModule, selectProductAmount } from "./model/selector";
+export { selectCartModule, selectProductAmount, selectAllProductAmount } from "./model/selector";
