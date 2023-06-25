@@ -4,12 +4,6 @@
   gap: 16px;
   height: calc(100vh - var(--header-height) - var(--footer-height) - 48px);
 }
-.ticket_card_list {
-  display: flex;
-  flex: 1 0 auto;
-  flex-direction: column;
-  gap: 16px;
-}
 .total_card {
   display: flex;
 }

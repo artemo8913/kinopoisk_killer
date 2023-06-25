@@ -4,7 +4,7 @@ import style from "./film.module.css";
 import { createClassName } from "@/shared/lib/createClassName";
 import Image from "next/image";
 import { Counter } from "@/entity/counter";
-import { useGetAllFilmsQuery, useGetOneFilmQuery } from "../model/api";
+import { useGetOneFilmQuery } from "../model/api";
 
 interface FilmProps {
   additionalClassName?: string;

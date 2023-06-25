@@ -1,7 +1,5 @@
 import { Film } from "@/features/film";
-import { Review } from "@/entity/review";
-import { URL_API_MOVIE } from "@/shared/const/url";
-import { fetchData } from "@/shared/lib/fetchData";
+
 interface FilmPageParams {
   id: string;
 }

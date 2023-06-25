@@ -16,7 +16,6 @@ interface TicketCardProps {
   onClose?: () => void;
   id: string;
   posterUrl: string;
-  value: number;
   title: string;
   genre: string;
 }

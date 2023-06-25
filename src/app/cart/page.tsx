@@ -1,8 +1,9 @@
-import { TicketCard } from "@/widgets/ticketCard";
+import { TicketCard } from "@/entity/ticketCard";
 import styles from "./styles/cart.module.css";
 import { Card } from "@/shared/ui/card";
+import { TicketCardList } from "@/widgets/ticketCardList";
 
-export default async function Cart() {
+export default function Cart() {
   const dataMock = [
     {
       title: "Властелин колец: Братство Кольца",
@@ -53,10 +54,9 @@ export default async function Cart() {
       reviewIds: ["t8QHNLoec1QF1XFyObGk7", "-b9ezNy3oSoMpldgUl_IC"],
     },
   ];
-  const ticketCards = dataMock.map((film) => <TicketCard isInCart key={film.id} value={1} {...film} />);
   return (
     <div className={styles.Cart}>
-      <div className={styles.ticket_card_list}>{ticketCards}</div>
+      <TicketCardList isInCart filmsList={dataMock} />
       <Card additionalClassName={styles.total_card}>
         <span>Итого билетов:</span>
         <span>2</span>
