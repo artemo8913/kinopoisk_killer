@@ -6,7 +6,7 @@ import { Input } from "@/shared/ui/input";
 import { Select } from "@/shared/ui/input/select";
 
 interface FilterPanelProps {
-  additionalClass?: string;
+  additionalClassName?: string;
   filterFilds: {
     name: string;
     genre: string;
@@ -18,10 +18,10 @@ interface FilterPanelProps {
 }
 
 export function FilterPanel(props: FilterPanelProps) {
-  const { additionalClass, filterFilds, cinemas, genres, filterHandler } = props;
+  const { additionalClassName, filterFilds, cinemas, genres, filterHandler } = props;
 
   return (
-    <Card additionalClassName={createClassName(styles.FilterPanel, {}, [additionalClass])}>
+    <Card additionalClassName={createClassName(styles.FilterPanel, {}, [additionalClassName])}>
       <div className={styles.title}>Фильтр поиска</div>
       <Input
         label="Название"

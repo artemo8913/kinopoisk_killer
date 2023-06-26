@@ -44,9 +44,9 @@ export default function Home() {
         cinemas={cinemasNames}
         filterFilds={filterFilds}
         filterHandler={filterHandler}
-        additionalClass={styles.filterPanel}
+        additionalClassName={styles.filterPanel}
       />
-      <TicketCardList filmsList={filteredData} />
+      <TicketCardList additionalClassName={styles.ticketList} filmsList={filteredData} />
     </main>
   );
 }

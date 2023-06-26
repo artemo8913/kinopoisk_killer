@@ -1,8 +1,6 @@
-.main {
-  display: flex;
-  align-items: flex-start;
-  gap: 24px;
-}
 .filterPanel {
-  position: sticky;
+  position: fixed;
+}
+.ticketList {
+  margin-left: calc(var(--input-width) + 64px);
 }
