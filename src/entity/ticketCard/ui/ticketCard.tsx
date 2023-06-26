@@ -31,6 +31,7 @@ function TicketCard(props: TicketCardProps) {
   const dispath = useDispatch();
   const decrease = () => dispath(cartSlice.actions.decrement(id));
   const increase = () => dispath(cartSlice.actions.increment(id));
+  const remove = () => dispath(cartSlice.actions.remove(id));
 
   const router = useRouter();
 
@@ -54,7 +55,7 @@ function TicketCard(props: TicketCardProps) {
           <div className={styles.title}>{title}</div>
           <div className={styles.genre}>{genre}</div>
         </div>
-        <Counter value={value} decrease={decrease} increase={increase} />
+        <Counter value={value} decrease={value > 1 ? decrease : openModalWindow} increase={increase} />
         {isInCart && (
           <Button handleClick={openModalWindow} theme={AppButtonTheme.CLEAR}>
             <Image src={IconRemove} width={20} alt="удалить" />
@@ -71,8 +72,10 @@ function TicketCard(props: TicketCardProps) {
           </div>
           <div className={styles.modal_questions}>Вы уверены, что хотите удалить билет?</div>
           <div className={styles.modal_comfirm_buttons}>
-            <Button isComfirm>Да</Button>
-            <Button isComfirm theme={AppButtonTheme.EMPTY}>
+            <Button isComfirm handleClick={remove}>
+              Да
+            </Button>
+            <Button isComfirm handleClick={closeModalWindow} theme={AppButtonTheme.EMPTY}>
               Нет
             </Button>
           </div>
