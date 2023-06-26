@@ -22,11 +22,11 @@ function QuestionCard(props: QuestionCardProps) {
 
   return (
     <Card additionalClassName={createClassName(styles.QuestionCard, {}, [additionalClass])}>
-      <div className={styles.text_conteiner}>
+      <div onClick={handleClick} className={styles.text_conteiner}>
         <p className={styles.question}>{question}</p>
         {Boolean(isOpen) && <p className={styles.answer}>{answer}</p>}
       </div>
-      <DropDownButton isOpen={isOpen} handleClick={handleClick} />
+      <DropDownButton isOpen={isOpen} />
     </Card>
   );
 }

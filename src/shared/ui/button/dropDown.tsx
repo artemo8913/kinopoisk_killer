@@ -7,7 +7,7 @@ import { PropsWithChildren } from "react";
 
 interface DropDownButtonProps extends PropsWithChildren<React.ComponentProps<typeof Button>> {
   isOpen: boolean;
-  handleClick: () => void;
+  handleClick?: () => void;
 }
 
 function DropDownButton(props: DropDownButtonProps) {
