@@ -52,7 +52,7 @@ function Select(props: SelectProps) {
     <div className={createClassName(styles.select_layout, {}, [additionalClass])}>
       <label>
         {Boolean(label) ? <span className={styles.label}>{label}</span> : null}
-        <div className={styles.select_conteiner}>
+        <div className={`${styles.select_conteiner} ${isOpen ? styles.select_focus : null}`}>
           <div className={`${styles.select_text} ${value ? null : styles.isUnselect}`}>
             {value ? value : placeholder}
           </div>
