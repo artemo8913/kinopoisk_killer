@@ -1,5 +1,4 @@
 "use client";
-import { TicketCard } from "@/entity/ticketCard";
 import { useGetAllFilmsQuery } from "@/features/film";
 import { TicketCardList } from "@/widgets/ticketCardList";
 

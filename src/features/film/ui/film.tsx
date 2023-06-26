@@ -28,7 +28,7 @@ function Film(props: FilmProps) {
       <div className={style.info_conteiner}>
         <div className={style.info_for_sell}>
           <span className={style.title}>{title}</span>
-          <Counter id={id} />
+          <Counter value={id} />
         </div>
         <div className={style.basic_info}>
           <div>

@@ -18,8 +18,7 @@ export const cartSlice = createSlice({
       if (!count) {
         return;
       }
-      if (count <= 1) {
-        delete state[id];
+      if (count < 1) {
         return;
       }
 
