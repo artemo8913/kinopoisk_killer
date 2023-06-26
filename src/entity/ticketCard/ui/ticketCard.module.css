@@ -30,3 +30,22 @@
   line-height: 20px;
   font-size: var(--font-size-m);
 }
+.modal_title_conteiner {
+  display: flex;
+  margin-bottom: 16px;
+}
+.modal_title {
+  flex: 1 1 auto;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 20px;
+}
+.modal_questions {
+  font-size: 16px;
+  line-height: 20px;
+  margin-bottom: 24px;
+}
+.modal_comfirm_buttons {
+  display: flex;
+  gap: 8px;
+}

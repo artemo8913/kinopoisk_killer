@@ -62,7 +62,21 @@ function TicketCard(props: TicketCardProps) {
         )}
       </Card>
       <ModalFullWindow isOpen={isModalWindowOpen} onClose={closeModalWindow}>
-        Ghbdtn
+        <>
+          <div className={styles.modal_title_conteiner}>
+            <div className={styles.modal_title}>Удаление билета</div>
+            <Button handleClick={closeModalWindow} theme={AppButtonTheme.CLEAR}>
+              <Image src={IconRemove} width={20} alt="удалить" />
+            </Button>
+          </div>
+          <div className={styles.modal_questions}>Вы уверены, что хотите удалить билет?</div>
+          <div className={styles.modal_comfirm_buttons}>
+            <Button isComfirm>Да</Button>
+            <Button isComfirm theme={AppButtonTheme.EMPTY}>
+              Нет
+            </Button>
+          </div>
+        </>
       </ModalFullWindow>
     </>
   );

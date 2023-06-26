@@ -30,7 +30,7 @@
   --bg-inverted-secondary-color: #ffa375;
   --bg-secondary-color-hover: #e94e00;
 
-  --bg-overlay-color: rgba(0, 0, 0, 0.1);
+  --bg-overlay-color: rgba(0, 0, 0, 0.5);
   --bg-overlay-inverted-color: var(--bg-secondary-color);
 
   --input-inactive-border-color: #e1e3e6;

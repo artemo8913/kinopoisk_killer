@@ -25,7 +25,7 @@
 .content {
   transform: scale(0.5);
   transition: transform var(--modal-window-timeout);
-  background-color: var(--bg-overlay-inverted-color);
+  background-color: var(--bg-primary-color);
   padding: 24px;
   border-radius: 8px;
   max-width: 600px;

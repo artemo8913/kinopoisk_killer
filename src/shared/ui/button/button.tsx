@@ -13,6 +13,7 @@ interface ButtonProps {
   additionalClass?: string;
   isDisabled?: boolean;
   theme?: AppButtonTheme;
+  isComfirm?: boolean;
   handleClick?: () => void;
 }
 
@@ -22,12 +23,14 @@ function Button(props: PropsWithChildren<ButtonProps>) {
     handleClick,
     children,
     theme = AppButtonTheme.DEFAULT,
+    isComfirm = false,
     isDisabled = false,
     ...otherProps
   } = props;
 
   const styleMods = {
     [styles.disabled]: isDisabled,
+    [styles.comfirm]: isComfirm,
     [styles[theme]]: Boolean(theme),
   };
 
