@@ -15,7 +15,7 @@ function DropDownButton(props: DropDownButtonProps) {
   const styleMods = isOpen ? styles.drop_down_open : "";
   return (
     <Button handleClick={handleClick} theme={AppButtonTheme.CLEAR} additionalClass={styles.drop_down} {...otherProps}>
-      <Image alt="скрыть" src={IconArrow} className={styleMods} />
+      <Image width={20} height={20} alt="скрыть" src={IconArrow} className={styleMods} />
     </Button>
   );
 }

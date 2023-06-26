@@ -21,3 +21,36 @@
 .Input:focus {
   border-color: var(--bg-secondary-color);
 }
+.Option {
+  border: none;
+  font-size: 14px;
+  line-height: 20px;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.select_conteiner {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: 1px solid var(--input-inactive-border-color);
+  background: var(--bg-primary-color);
+  font-size: var(----font-size-m);
+  line-height: 20px;
+  width: var(--input-width);
+}
+.option_conteiner {
+  position: absolute;
+  background-color: var(--bg-primary-color);
+  width: var(--input-width);
+}
+.select_text {
+  flex: 1 1 auto;
+}
+.select_text.isUnselect {
+  color: var(--text-tertiary);
+  font-size: 14px;
+  line-height: 20px;
+}

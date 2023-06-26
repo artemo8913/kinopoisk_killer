@@ -11,7 +11,7 @@ interface InputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, "value"
 }
 
 function Input(props: InputProps) {
-  const { additionalClass, value, onChange, label, ...otherProps } = props;
+  const { additionalClass, value, onChange, placeholder, label, ...otherProps } = props;
 
   const onChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (onChange) {
@@ -20,11 +20,11 @@ function Input(props: InputProps) {
   };
 
   return (
-    <label className={createClassName("input_layout", {}, [additionalClass])}>
+    <label className={createClassName(styles.input_layout, {}, [additionalClass])}>
       {Boolean(label) ? <span className={styles.label}>{label}</span> : null}
       <input
         type="text"
-        placeholder="asd"
+        placeholder={placeholder}
         value={value}
         onChange={onChangeHandler}
         {...otherProps}

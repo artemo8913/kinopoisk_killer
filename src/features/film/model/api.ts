@@ -6,7 +6,9 @@ const filmApi = createApi({
   reducerPath: "filmApi",
   baseQuery: fetchBaseQuery({ baseUrl: BASE_URL }),
   endpoints: (builder) => ({
-    getAllFilms: builder.query<FilmSchema[], null>({ query: () => "movies" }),
+    getAllFilms: builder.query<FilmSchema[], string>({
+      query: (cinemaId) => (cinemaId ? `movies?cinemaId=${cinemaId}` : "movies"),
+    }),
     getOneFilm: builder.query<FilmSchema, string>({ query: (movieId) => `movie?movieId=${movieId}` }),
   }),
 });

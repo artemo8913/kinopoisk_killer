@@ -1,0 +1,11 @@
+.FilterPanel {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  height: calc(100vh - var(--header-height) - var(--footer-height));
+}
+.title {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+}

@@ -1,0 +1,8 @@
+.main {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+}
+.filterPanel {
+  position: sticky;
+}
