@@ -3,6 +3,7 @@ import Image from "next/image";
 import IconPlus from "@/shared/assets/icons/plus.svg";
 import IconMinus from "@/shared/assets/icons/minus.svg";
 import { CounterButton } from "./counterButton";
+import { memo } from "react";
 
 interface CounterProps {
   value: number;
@@ -10,7 +11,8 @@ interface CounterProps {
   increase: () => void;
 }
 
-function Counter(props: CounterProps) {
+// eslint-disable-next-line react/display-name
+const Counter = memo((props: CounterProps) => {
   const { value, decrease, increase } = props;
 
   const isDisabledDecrease = value <= 0;
@@ -27,5 +29,5 @@ function Counter(props: CounterProps) {
       </CounterButton>
     </div>
   );
-}
+});
 export { Counter };

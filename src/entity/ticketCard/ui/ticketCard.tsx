@@ -8,7 +8,7 @@ import { Button } from "@/shared/ui/button";
 import IconRemove from "@/shared/assets/icons/close.svg";
 import { AppButtonTheme } from "@/shared/ui/button/button";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { ModalFullWindow } from "@/shared/modalFullWindow/modalFullWindow";
 import { useDispatch, useSelector } from "react-redux";
 import { cartSlice, selectProductAmount } from "@/features/cart";
@@ -29,19 +29,19 @@ function TicketCard(props: TicketCardProps) {
   const value = useSelector((state: StateSchema) => selectProductAmount(state, id));
 
   const dispath = useDispatch();
-  const decrease = () => dispath(cartSlice.actions.decrement(id));
-  const increase = () => dispath(cartSlice.actions.increment(id));
-  const remove = () => dispath(cartSlice.actions.remove(id));
+  const decrease = useCallback(() => dispath(cartSlice.actions.decrement(id)), [id, dispath]);
+  const increase = useCallback(() => dispath(cartSlice.actions.increment(id)), [id, dispath]);
+  const remove = useCallback(() => dispath(cartSlice.actions.remove(id)), [id, dispath]);
 
   const router = useRouter();
 
   const [isModalWindowOpen, setIsModalWindowOpen] = useState(false);
-  const openModalWindow = () => setIsModalWindowOpen(true);
-  const closeModalWindow = () => setIsModalWindowOpen(false);
-  const removeAndClose = () => {
+  const openModalWindow = useCallback(() => setIsModalWindowOpen(true), []);
+  const closeModalWindow = useCallback(() => setIsModalWindowOpen(false), []);
+  const removeAndClose = useCallback(() => {
     remove();
     closeModalWindow();
-  };
+  }, [closeModalWindow, remove]);
 
   return (
     <>

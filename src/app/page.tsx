@@ -7,7 +7,9 @@ import { useState } from "react";
 import { useGetAllCinemasQuery } from "@/features/cinema";
 
 function filmFilter(data: FilmSchema[], filter: { name: string; genre: string }): FilmSchema[] {
-  return data.filter((film) => film.title.match(filter.name) && film.genre.match(filter.genre));
+  return data.filter(
+    (film) => film.title.toLocaleLowerCase().match(filter.name.toLocaleLowerCase()) && film.genre.match(filter.genre)
+  );
 }
 
 export default function Home() {
