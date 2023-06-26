@@ -44,7 +44,7 @@ function Select(props: SelectProps) {
     setIsOpen(false);
   };
 
-  const optionList = [placeholder]
+  const optionList = ["Не выбран"]
     .concat(options)
     .map((option, i) => <Option onClick={valueHandler} key={option} value={option} id={i} />);
 
@@ -53,7 +53,9 @@ function Select(props: SelectProps) {
       <label>
         {Boolean(label) ? <span className={styles.label}>{label}</span> : null}
         <div className={styles.select_conteiner}>
-          <div className={styles.select_text}>{value}</div>
+          <div className={`${styles.select_text} ${value ? null : styles.isUnselect}`}>
+            {value ? value : placeholder}
+          </div>
           <DropDownButton handleClick={() => setIsOpen((prev) => !prev)} isOpen={isOpen} />
         </div>
       </label>

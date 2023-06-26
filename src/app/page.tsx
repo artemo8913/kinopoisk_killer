@@ -1,10 +1,14 @@
 "use client";
-import { useGetAllFilmsQuery } from "@/features/film";
+import { FilmSchema, useGetAllFilmsQuery } from "@/features/film";
 import { FilterPanel } from "@/widgets/filterPanel";
 import { TicketCardList } from "@/widgets/ticketCardList";
 import styles from "./styles/mainPage.module.css";
 import { useState } from "react";
 import { useGetAllCinemasQuery } from "@/features/cinema";
+
+function filmFilter(data: FilmSchema[], filter: { name: string; genre: string }): FilmSchema[] {
+  return data.filter((film) => film.title.match(filter.name) && film.genre.match(filter.genre));
+}
 
 export default function Home() {
   const [filterFilds, setFilterFilds] = useState({
@@ -20,7 +24,7 @@ export default function Home() {
   const filterHandler = (type: string) => (value: string) => {
     setFilterFilds((prev) => ({ ...prev, [type]: value }));
     if (type === "cinema") {
-      const cinemaId = cinemas?.find((cinema) => cinema.name === filterFilds.cinema)?.id || "";
+      const cinemaId = cinemas?.find((cinema) => cinema.name === value)?.id || "";
       setCinemaId(cinemaId);
     }
   };
@@ -32,7 +36,7 @@ export default function Home() {
     return <span>Error</span>;
   }
   const cinemasNames = cinemas.map((data) => data.name);
-
+  const filteredData = filmFilter(data, filterFilds);
   return (
     <main className={styles.main}>
       <FilterPanel
@@ -42,7 +46,7 @@ export default function Home() {
         filterHandler={filterHandler}
         additionalClass={styles.filterPanel}
       />
-      <TicketCardList filmsList={data} />
+      <TicketCardList filmsList={filteredData} />
     </main>
   );
 }
