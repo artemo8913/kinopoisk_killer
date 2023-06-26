@@ -26,7 +26,7 @@ function QuestionCard(props: QuestionCardProps) {
         <p className={styles.question}>{question}</p>
         {Boolean(isOpen) && <p className={styles.answer}>{answer}</p>}
       </div>
-      <DropDownButton isOpen={isOpen} />
+      <DropDownButton handleClick={handleClick} isOpen={isOpen} />
     </Card>
   );
 }
