@@ -38,6 +38,10 @@ function TicketCard(props: TicketCardProps) {
   const [isModalWindowOpen, setIsModalWindowOpen] = useState(false);
   const openModalWindow = () => setIsModalWindowOpen(true);
   const closeModalWindow = () => setIsModalWindowOpen(false);
+  const removeAndClose = () => {
+    remove();
+    closeModalWindow();
+  };
 
   return (
     <>
@@ -72,7 +76,7 @@ function TicketCard(props: TicketCardProps) {
           </div>
           <div className={styles.modal_questions}>Вы уверены, что хотите удалить билет?</div>
           <div className={styles.modal_comfirm_buttons}>
-            <Button isComfirm handleClick={remove}>
+            <Button isComfirm handleClick={removeAndClose}>
               Да
             </Button>
             <Button isComfirm handleClick={closeModalWindow} theme={AppButtonTheme.EMPTY}>

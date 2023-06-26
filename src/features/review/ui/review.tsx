@@ -22,7 +22,8 @@ export function Review(props: ReviewProps) {
         height={100}
         key={id}
         alt="автор"
-        src={imageLoadError ? IconAvatar : posterUrl}
+        // src={imageLoadError ? IconAvatar : posterUrl}
+        src={IconAvatar}
         onError={() => {
           setError(true);
         }}

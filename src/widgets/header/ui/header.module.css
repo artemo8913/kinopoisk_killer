@@ -17,6 +17,21 @@
 }
 
 .link {
+  display: flex;
   color: var(--text-inverted-primary-color);
   font-size: var(--font-size-xxl);
+}
+.cart_amount {
+  min-width: 28px;
+  flex-shrink: 0;
+  display: flex;
+  padding: 4px;
+  font-size: 14px;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  line-height: 20px;
+  border-radius: 8px;
+  background: var(--bg-secondary-color);
+  margin-right: 8px;
 }

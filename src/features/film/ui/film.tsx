@@ -5,6 +5,9 @@ import { createClassName } from "@/shared/lib/createClassName";
 import Image from "next/image";
 import { Counter } from "@/entity/counter";
 import { useGetOneFilmQuery } from "../model/api";
+import { useDispatch, useSelector } from "react-redux";
+import { cartSlice, selectProductAmount } from "@/features/cart";
+import { StateSchema } from "@/store";
 
 interface FilmProps {
   additionalClassName?: string;
@@ -15,6 +18,12 @@ function Film(props: FilmProps) {
   const { additionalClassName, id } = props;
   const { data, isLoading, error } = useGetOneFilmQuery(id);
 
+  const value = useSelector((state: StateSchema) => selectProductAmount(state, id));
+
+  const dispath = useDispatch();
+  const decrease = () => dispath(cartSlice.actions.decrement(id));
+  const increase = () => dispath(cartSlice.actions.increment(id));
+
   if (isLoading) {
     return <div>...</div>;
   }
@@ -24,11 +33,11 @@ function Film(props: FilmProps) {
   const { title, posterUrl, genre, releaseYear, rating, director, description } = data;
   return (
     <Card additionalClassName={createClassName(style.Film, {}, [additionalClassName])}>
-      <Image alt={title} src={posterUrl} width={400} height={500} style={{ objectFit: "cover" }} />
+      <Image alt="Постер" src={posterUrl} width={400} height={500} style={{ objectFit: "cover" }} />
       <div className={style.info_conteiner}>
         <div className={style.info_for_sell}>
           <span className={style.title}>{title}</span>
-          <Counter value={id} />
+          <Counter decrease={decrease} increase={increase} value={value} />
         </div>
         <div className={style.basic_info}>
           <div>

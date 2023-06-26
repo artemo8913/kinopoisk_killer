@@ -18,11 +18,11 @@ function Counter(props: CounterProps) {
 
   return (
     <div className={styles.Counter}>
-      <CounterButton handleClick={decrease} isDisabled={isDisabledDecrease}>
+      <CounterButton handleClick={isDisabledDecrease ? undefined : decrease} isDisabled={isDisabledDecrease}>
         <Image alt="-1" width={12} height={12} src={IconMinus}></Image>
       </CounterButton>
       <span className={styles.value}>{value}</span>
-      <CounterButton handleClick={increase} isDisabled={isDisabledIncrease}>
+      <CounterButton handleClick={isDisabledIncrease ? undefined : increase} isDisabled={isDisabledIncrease}>
         <Image alt="+1" width={12} height={12} src={IconPlus}></Image>
       </CounterButton>
     </div>
