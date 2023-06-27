@@ -6,10 +6,20 @@ import { useGetAllFilmsQuery } from "@/features/film";
 import { useSelector } from "react-redux";
 import { selectAllProductAmount, selectCartModule } from "@/features/cart";
 
-export default function Cart() {
-  const { data, isLoading, error } = useGetAllFilmsQuery(null);
-  const cart = useSelector(selectCartModule);
+function TotalAmount() {
   const amount = useSelector(selectAllProductAmount);
+
+  return (
+    <Card additionalClassName={styles.total_card}>
+      <span>Итого билетов:</span>
+      <span>{amount}</span>
+    </Card>
+  );
+}
+
+export default function Cart() {
+  const { data, isLoading, error } = useGetAllFilmsQuery("");
+  const cart = useSelector(selectCartModule);
   if (isLoading) {
     return <div>...</div>;
   }
@@ -20,10 +30,7 @@ export default function Cart() {
   return (
     <div className={styles.Cart}>
       <TicketCardList isInCart filmsList={filmsInCart} />
-      <Card additionalClassName={styles.total_card}>
-        <span>Итого билетов:</span>
-        <span>{amount}</span>
-      </Card>
+      <TotalAmount />
     </div>
   );
 }

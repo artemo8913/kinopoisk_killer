@@ -8,11 +8,10 @@ import { Button } from "@/shared/ui/button";
 import IconRemove from "@/shared/assets/icons/close.svg";
 import { AppButtonTheme } from "@/shared/ui/button/button";
 import { useRouter } from "next/navigation";
-import { useCallback, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import { ModalFullWindow } from "@/shared/modalFullWindow/modalFullWindow";
-import { useDispatch, useSelector } from "react-redux";
-import { cartSlice, selectProductAmount } from "@/features/cart";
-import { StateSchema } from "@/store";
+import { cartSlice } from "@/features/cart";
+import { useDispatch } from "react-redux";
 
 interface TicketCardProps {
   additionalClass?: string;
@@ -25,30 +24,25 @@ interface TicketCardProps {
 
 function TicketCard(props: TicketCardProps) {
   const { additionalClass, id, posterUrl, title, genre, isInCart = false } = props;
-
-  const value = useSelector((state: StateSchema) => selectProductAmount(state, id));
-
-  const dispath = useDispatch();
-  const decrease = useCallback(() => dispath(cartSlice.actions.decrement(id)), [id, dispath]);
-  const increase = useCallback(() => dispath(cartSlice.actions.increment(id)), [id, dispath]);
-  const remove = useCallback(() => dispath(cartSlice.actions.remove(id)), [id, dispath]);
-
   const router = useRouter();
-
   const [isModalWindowOpen, setIsModalWindowOpen] = useState(false);
+  const dispatch = useDispatch();
   const openModalWindow = useCallback(() => setIsModalWindowOpen(true), []);
   const closeModalWindow = useCallback(() => setIsModalWindowOpen(false), []);
+  const remove = useCallback(() => dispatch(cartSlice.actions.remove(id)), [id, dispatch]);
   const removeAndClose = useCallback(() => {
     remove();
     closeModalWindow();
   }, [closeModalWindow, remove]);
 
+  const onClickRoute = useCallback(() => router.push(`/film/${id}`), [id, router]);
+  const imgStyle: { objectFit: "cover" } = useMemo(() => ({ objectFit: "cover" }), []);
   return (
     <>
       <Card additionalClassName={createClassName(styles.TicketCard, {}, [additionalClass])}>
         <Image
-          onClick={() => router.push(`/film/${id}`)}
-          style={{ objectFit: "cover" }}
+          onClick={onClickRoute}
+          style={imgStyle}
           className={styles.image_conteiner}
           width={100}
           height={120}
@@ -59,7 +53,7 @@ function TicketCard(props: TicketCardProps) {
           <div className={styles.title}>{title}</div>
           <div className={styles.genre}>{genre}</div>
         </div>
-        <Counter value={value} decrease={value > 1 ? decrease : openModalWindow} increase={increase} />
+        <Counter openModalWindow={openModalWindow} id={id} />
         {isInCart && (
           <Button handleClick={openModalWindow} theme={AppButtonTheme.CLEAR}>
             <Image src={IconRemove} width={20} alt="удалить" />

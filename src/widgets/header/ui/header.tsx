@@ -11,7 +11,8 @@ import { memo } from "react";
 interface HeaderProps {
   additionalClassName?: string;
 }
-const CartLink = ({ amount }: { amount: number }) => {
+const CartLink = () => {
+  const amount = useSelector(selectAllProductAmount);
   return (
     <div className={styles.cart}>
       <Link className={styles.link} href="/cart">
@@ -24,8 +25,6 @@ const CartLink = ({ amount }: { amount: number }) => {
 const MemoCartLink = memo(CartLink);
 
 function Header({ additionalClassName }: HeaderProps) {
-  const amount = useSelector(selectAllProductAmount);
-
   return (
     <header className={createClassName(styles.Header, {}, [additionalClassName])}>
       <div className={styles.title}>
@@ -33,7 +32,7 @@ function Header({ additionalClassName }: HeaderProps) {
           Билетопоиск
         </Link>
       </div>
-      <MemoCartLink amount={amount} />
+      <MemoCartLink />
     </header>
   );
 }
