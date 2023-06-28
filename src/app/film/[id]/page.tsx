@@ -8,11 +8,10 @@ interface FilmPageParams {
 }
 
 interface FilmPageProps {
-  additionalClassName?: string;
   params: FilmPageParams;
 }
 
-function FilmPage({ additionalClassName, params }: FilmPageProps) {
+function FilmPage({ params }: FilmPageProps) {
   const filmId = params.id;
   const { data, isLoading, error } = useGetReviewsForFilmQuery(filmId);
   if (isLoading) {
